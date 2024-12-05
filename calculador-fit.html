@@ -1,0 +1,29 @@
+<div class="pantalla">
+  <link rel="stylesheet" href="calculador-fit.css">
+  <header>
+    <h1>Calculador Fit</h1>
+  </header>
+  <form id="form-calculadora">
+    <h2>Introduce tus datos</h2>
+    <label for="peso">Peso (kg):</label>
+    <input type="number" id="peso" placeholder="Ingresa tu peso" />
+
+    <label for="altura">Altura (cm):</label>
+    <input type="number" id="altura" placeholder="Ingresa tu altura" />
+
+    <h2>Ejercicios</h2>
+    <label for="banca">Press de banca (kg):</label>
+    <input type="number" id="banca" placeholder="Peso levantado en banca" />
+
+    <label for="biceps">Bíceps con barra (kg):</label>
+    <input type="number" id="biceps" placeholder="Peso levantado en bíceps" />
+
+    <label for="prensa">Prensa para piernas (kg):</label>
+    <input type="number" id="prensa" placeholder="Peso levantado en prensa" />
+
+    <button type="button" onclick="calcularIFR()">Calcular IFR</button>
+  </form>
+  <div id="resultado-ifr"></div>
+</div>
+<button id="btn-volver" onclick="volverAPrincipal()">↩</button>
+<script src="calculador-fit.js"></script>
