@@ -80,5 +80,5 @@ function colorNivel(nivel) {
 
 // Función para volver a la pantalla principal
 function volverAPrincipal() {
-  window.location.href = "calculador.html"; // Cambia esto si el nombre del archivo principal es diferente
+  window.location.href = "index.html"; // Cambia esto si el nombre del archivo principal es diferente
 }
