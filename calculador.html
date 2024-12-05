@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página Principal</title>
+  <link rel="stylesheet" href="diseño-principal.css">
+</head>
+<body>
+  <div class="pantalla">
+    <header>
+      <h1>Bienvenido a Fit-App</h1>
+    </header>
+    <main>
+      <div class="botones">
+        <!-- Botón que enlaza a la calculadora -->
+        <button class="btn" onclick="abrirCalculador()">Calculador-Fit</button>
+
+        <!-- Botón de proyecto futuro -->
+        <button class="btn">Próximamente</button>
+      </div>
+    </main>
+  </div>
+  <script>
+    // Función para abrir calculador-fit.html
+    function abrirCalculador() {
+      window.location.href = "calculador-fit.html";
+    }
+  </script>
+</body>
+</html>
