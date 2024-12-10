@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Calculador Fit</title>
   <link rel="stylesheet" href="calculador-fit.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <div class="pantalla">
@@ -33,13 +34,14 @@
         <button type="button" onclick="calcularIFR()">Calcular IFR</button>
       </form>
       <div id="resultado-ifr"></div>
+      <canvas id="graficaIFR" width="400" height="200"></canvas>
     </main>
     <footer>
       <button id="btn-volver" onclick="volverAPrincipal()">↩ Volver</button>
     </footer>
   </div>
   <script>
-    // Función para calcular el Índice Fit Relativo (IFR)
+    // Función para calcular el Índice Fit Relativo (IFR) y mostrar gráfica
     function calcularIFR() {
       const peso = parseFloat(document.getElementById("peso").value);
       const altura = parseFloat(document.getElementById("altura").value);
@@ -56,6 +58,36 @@
       const ifr = ((banca + biceps + prensa) / (peso * (altura / 100))) || 0;
       document.getElementById("resultado-ifr").textContent =
         `Tu Índice Fit Relativo (IFR) es: ${ifr.toFixed(2)}`;
+
+      // Datos para la gráfica
+      const datos = {
+        labels: ["Press de banca", "Bíceps con barra", "Prensa de piernas"],
+        datasets: [{
+          label: "Peso levantado (kg)",
+          data: [banca, biceps, prensa],
+          backgroundColor: ["#ff6384", "#36a2eb", "#ffce56"],
+        }],
+      };
+
+      // Configuración de la gráfica
+      const config = {
+        type: "bar",
+        data: datos,
+        options: {
+          responsive: true,
+          plugins: {
+            legend: { display: true },
+            title: { display: true, text: "Desempeño por ejercicio" },
+          },
+        },
+      };
+
+      // Crear o actualizar la gráfica
+      const ctx = document.getElementById("graficaIFR").getContext("2d");
+      if (window.grafica) {
+        window.grafica.destroy();
+      }
+      window.grafica = new Chart(ctx, config);
     }
 
     // Función para volver a la página principal
