@@ -1,29 +1,67 @@
-<div class="pantalla">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculador Fit</title>
   <link rel="stylesheet" href="calculador-fit.css">
-  <header>
-    <h1>Calculador Fit</h1>
-  </header>
-  <form id="form-calculadora">
-    <h2>Introduce tus datos</h2>
-    <label for="peso">Peso (kg):</label>
-    <input type="number" id="peso" placeholder="Ingresa tu peso" />
+</head>
+<body>
+  <div class="pantalla">
+    <header>
+      <h1>Calculador Fit</h1>
+    </header>
+    <main>
+      <form id="form-calculadora">
+        <h2>Introduce tus datos</h2>
+        <label for="peso">Peso (kg):</label>
+        <input type="number" id="peso" placeholder="Ingresa tu peso" required />
 
-    <label for="altura">Altura (cm):</label>
-    <input type="number" id="altura" placeholder="Ingresa tu altura" />
+        <label for="altura">Altura (cm):</label>
+        <input type="number" id="altura" placeholder="Ingresa tu altura" required />
 
-    <h2>Ejercicios</h2>
-    <label for="banca">Press de banca (kg):</label>
-    <input type="number" id="banca" placeholder="Peso levantado en banca" />
+        <h2>Ejercicios</h2>
+        <label for="banca">Press de banca (kg):</label>
+        <input type="number" id="banca" placeholder="Peso levantado en banca" />
 
-    <label for="biceps">Bíceps con barra (kg):</label>
-    <input type="number" id="biceps" placeholder="Peso levantado en bíceps" />
+        <label for="biceps">Bíceps con barra (kg):</label>
+        <input type="number" id="biceps" placeholder="Peso levantado en bíceps" />
 
-    <label for="prensa">Prensa para piernas (kg):</label>
-    <input type="number" id="prensa" placeholder="Peso levantado en prensa" />
+        <label for="prensa">Prensa para piernas (kg):</label>
+        <input type="number" id="prensa" placeholder="Peso levantado en prensa" />
 
-    <button type="button" onclick="calcularIFR()">Calcular IFR</button>
-  </form>
-  <div id="resultado-ifr"></div>
-</div>
-<button id="btn-volver" onclick="volverAPrincipal()">↩ Volver</button>
-<script src="calculador-fit.js"></script>
+        <button type="button" onclick="calcularIFR()">Calcular IFR</button>
+      </form>
+      <div id="resultado-ifr"></div>
+    </main>
+    <footer>
+      <button id="btn-volver" onclick="volverAPrincipal()">↩ Volver</button>
+    </footer>
+  </div>
+  <script>
+    // Función para calcular el Índice Fit Relativo (IFR)
+    function calcularIFR() {
+      const peso = parseFloat(document.getElementById("peso").value);
+      const altura = parseFloat(document.getElementById("altura").value);
+      const banca = parseFloat(document.getElementById("banca").value || 0);
+      const biceps = parseFloat(document.getElementById("biceps").value || 0);
+      const prensa = parseFloat(document.getElementById("prensa").value || 0);
+
+      if (isNaN(peso) || isNaN(altura) || peso <= 0 || altura <= 0) {
+        document.getElementById("resultado-ifr").textContent =
+          "Por favor, ingresa valores válidos para peso y altura.";
+        return;
+      }
+
+      const ifr = ((banca + biceps + prensa) / (peso * (altura / 100))) || 0;
+      document.getElementById("resultado-ifr").textContent =
+        `Tu Índice Fit Relativo (IFR) es: ${ifr.toFixed(2)}`;
+    }
+
+    // Función para volver a la página principal
+    function volverAPrincipal() {
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>
