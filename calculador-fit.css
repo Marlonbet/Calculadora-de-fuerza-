@@ -183,6 +183,7 @@ footer a:hover {
   cursor: pointer;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  z-index: 1000; /* Asegura que el botón esté por encima de otros elementos */
 }
 
 #btn-volver:hover {
