@@ -5,7 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Calculador Fit</title>
   <link rel="stylesheet" href="calculador-fit.css">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    // Redireccionar a index.html si se accede directamente a esta página
+    if (document.referrer === "" || window.location.pathname.includes("calculador-fit.html")) {
+      window.location.href = "index.html";
+    }
+  </script>
 </head>
 <body>
   <div class="pantalla">
@@ -40,6 +45,7 @@
       <button id="btn-volver" onclick="volverAPrincipal()">↩ Volver</button>
     </footer>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script>
     // Función para calcular el Índice Fit Relativo (IFR) y mostrar gráfica
     function calcularIFR() {
