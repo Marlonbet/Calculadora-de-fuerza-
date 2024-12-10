@@ -196,9 +196,9 @@ footer a:hover {
 }
 
 /* Responsividad */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .pantalla {
-    padding: 15px;
+    padding: 15px 20px;
   }
 
   header h1 {
@@ -220,5 +220,47 @@ footer a:hover {
 
   #resultado-ifr {
     font-size: 14px;
+  }
+
+  #btn-volver {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pantalla {
+    padding: 10px 15px;
+  }
+
+  header h1 {
+    font-size: 20px;
+  }
+
+  form h2 {
+    font-size: 16px;
+  }
+
+  form label {
+    font-size: 12px;
+  }
+
+  form input,
+  form button {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  #resultado-ifr {
+    font-size: 12px;
+  }
+
+  #btn-volver {
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    font-size: 16px;
   }
 }
