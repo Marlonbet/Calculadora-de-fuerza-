@@ -6,8 +6,9 @@
   <title>Calculador Fit</title>
   <link rel="stylesheet" href="calculador-fit.css">
   <script>
-    // Redireccionar a index.html si se accede directamente a esta página
-    if (document.referrer === "" || window.location.pathname.includes("calculador-fit.html")) {
+    // Redireccionar a index.html solo la primera vez
+    if (!sessionStorage.getItem("calculadoraAccedida")) {
+      sessionStorage.setItem("calculadoraAccedida", "true");
       window.location.href = "index.html";
     }
   </script>
